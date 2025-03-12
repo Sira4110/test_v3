@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/nullstyle.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="image/icon.ico">
+    <title>Universal Caesar Cipher</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header_inner">
+                    <nav class="menu">
+                        <ul class="menu_list">
+                            <li class="menu_item">
+                                <a href="index.html" class="menu_link">Home</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="about.html" class="menu_link">About Us</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="tools.html" class="menu_link active">Crypto Tools</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="faq.html" class="menu_link">FAQ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="index.html" class="header_logo">
+                        <img src="image/logo.png" alt="logo" class="logo_img">
+                    </a>
+                    <div class="header_burger">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="faq">
+                <div class="container">
+                    <div class="faq_inner">
+                        <h1 class="faq_title">Universal Caesar Cipher</h1>
+                        
+                        <div class="otp_container">
+                            <!-- Text input section -->
+                            <div class="text-input-section">
+                                <p class="input-hint">Enter text and shift value to encrypt with Universal Caesar cipher</p>
+                                <textarea id="inputText" placeholder="Type or paste your text here... (supports all languages, symbols, emojis)" class="fixed-textarea"></textarea>
+                                
+                                <div class="password-section">
+                                    <label for="shiftInput">Shift value:</label>
+                                    <input type="number" id="shiftInput" class="password-input" min="1" value="3" placeholder="Enter shift value">
+                                    <div class="format-indicator">Works with all Unicode characters including emojis and different languages</div>
+                                </div>
+                                
+                                <div class="text-actions">
+                                    <button onclick="caesarCipher.encryptText()" class="primary-btn">Encrypt Text</button>
+                                </div>
+                                
+                                <!-- Encrypted results (hidden by default) -->
+                                <div id="encryptionResults" class="encryption-results" style="display: none;">
+                                    <h3>Encrypted Text:</h3>
+                                    <textarea id="encryptedTextArea" class="result-textarea" readonly></textarea>
+                                    <div class="result-actions">
+                                        <button onclick="caesarCipher.copyEncryptedText()" class="secondary-btn">Copy Encrypted Text</button>
+                                        <button onclick="caesarCipher.downloadEncryptedText()" class="secondary-btn">Download Encrypted File</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="section-divider">OR</div>
+                            
+                            <!-- File encryption section -->
+                            <div class="file-input-section">
+                                <label for="inputFile">Select a file to encrypt:</label>
+                                <input type="file" id="inputFile" />
+                                
+                                <div class="password-section">
+                                    <label for="fileShiftInput">Shift value:</label>
+                                    <input type="number" id="fileShiftInput" class="password-input" min="1" value="3" placeholder="Enter shift value">
+                                </div>
+                                
+                                <button onclick="caesarCipher.encryptFile()" class="primary-btn">Encrypt File</button>
+                            </div>
+
+                            <br><br>
+
+                            <h2>Decryption</h2>
+
+                            <!-- Text decryption section -->
+                            <div class="text-input-section">
+                                <p class="input-hint">Paste encrypted text to decrypt</p>
+                                <textarea id="encryptedInput" placeholder="Paste encrypted text here..." class="fixed-textarea"></textarea>
+                                
+                                <div class="password-section">
+                                    <label for="decryptShiftInput">Shift value:</label>
+                                    <input type="number" id="decryptShiftInput" class="password-input" min="1" value="3" placeholder="Enter shift value">
+                                </div>
+                                
+                                <div class="text-actions">
+                                    <button onclick="caesarCipher.decryptText()" class="primary-btn">Decrypt Text</button>
+                                </div>
+                                
+                                <!-- Decryption result section (hidden by default) -->
+                                <div id="decryptionResult" class="decryption-result" style="display: none;">
+                                    <h3>Decryption Result:</h3>
+                                    <textarea id="decryptedTextArea" class="result-textarea" readonly></textarea>
+                                    <div class="result-actions">
+                                        <button onclick="caesarCipher.copyDecryptedText()" class="secondary-btn">Copy Result</button>
+                                        <button onclick="caesarCipher.downloadDecryptedText()" class="secondary-btn">Download Result</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="section-divider">OR</div>
+                            
+                            <!-- File decryption section -->
+                            <div class="file-input-section">
+                                <label for="encryptedFile">Select encrypted file to decrypt:</label>
+                                <input type="file" id="encryptedFile" />
+                                
+                                <div class="password-section">
+                                    <label for="fileDecryptShiftInput">Shift value:</label>
+                                    <input type="number" id="fileDecryptShiftInput" class="password-input" min="1" value="3" placeholder="Enter shift value">
+                                </div>
+                                
+                                <button onclick="caesarCipher.decryptFile()" class="primary-btn">Decrypt File</button>
+                            </div>
+                        </div>
+
+                        <div class="home_inner">
+                            <div class="home_social_fixed">
+                                <a href="#" class="home_social--link">
+                                    <img src="image/icon/Facebook.png" alt="social" class="social_img">
+                                </a>
+                                <a href="#" class="home_social--link">
+                                    <img src="image/icon/Instagram.png" alt="social" class="social_img">
+                                </a>
+                                <a href="#" class="home_social--link tooltip" id="copy-email">
+                                    <img src="image/icon/Gmail.png" alt="social" class="social_img">
+                                    <span class="tooltip-text">Email: cryptomonocle@gmail.com</span>
+                                </a>
+                                <a href="#" class="home_social--link">
+                                    <img src="image/icon/Github.png" alt="social" class="social_img">
+                                </a>
+                                <a href="#" class="home_social--link">
+                                    <img src="image/icon/Youtube.png" alt="social" class="social_img">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/scrollreveal.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/caesar.js"></script>
+</body>
+</html>

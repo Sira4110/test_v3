@@ -1,0 +1,254 @@
+@media(max-width:867.98px){
+    .body.lock{
+        overflow: hidden;
+    }
+
+    .wrapper{
+        /* position: relative; */
+        background-attachment: scroll; 
+    }
+
+    .wrapper::before{
+        content: '';
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .header{
+        position: relative;
+        z-index: 50;
+    }
+
+    .header_logo{
+        position: relative;
+        z-index: 5;
+        margin-left: 0;
+    }
+
+    .header_inner{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header_burger{
+        display: block;
+        position: relative;
+        width: 36px;
+        height: 25px;
+        z-index: 5;
+    }
+
+    .header_burger::before, 
+    .header_burger::after, 
+    .header_burger span{
+        content: '';
+        position: absolute;
+        height: 3px;
+        background-color: #FFFFFF;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .header_burger::before{
+        top: 0;
+    }
+    
+    .header_burger::after{
+        bottom: 0;
+    }
+    
+    .header_burger span{
+        top: 11px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .header_burger.active::after{
+		transform: rotate(-45deg);
+		bottom: 11px;
+	}
+	.header_burger.active::before{
+		transform: rotate(45deg);
+		top: 11px;
+	}
+	.header_burger.active span{
+		transform: scale(0);
+	}
+
+    .menu{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        right: -100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 150px 15px 0 0;
+        overflow: auto;
+        transition: all 0.3s ease-in-out;
+        z-index: 5;
+    }
+
+    .menu.active{
+        right: 0;
+    }
+
+    .menu_list{
+        display: block;
+        text-align: right;
+    }
+
+    .menu_item{
+        margin-bottom: 40px;
+    }
+
+    .menu_link{
+        font-size: 32px;
+        color: #FFFFFF;
+    }
+
+    .home_inner{
+        position: relative;
+        z-index: 5;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .home_descr{
+        color: #E0E0E0;
+    }
+
+    .home_social{
+        text-align: center;
+    }
+
+    .home_social_fixed{
+        text-align: center;
+    }
+
+    .faq_title {
+        font-size: 48px;
+    }
+    
+    .faq_question {
+        font-size: 20px;
+    }
+    
+    .faq_answer {
+        font-size: 14px;
+    }
+
+    .tools_grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+    
+    .tools_title {
+        font-size: 48px;
+    }
+
+    .tool_content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tool_name {
+        font-size: 20px;
+    }
+
+    .tool_descr {
+        font-size: 14px;
+    }
+
+    .tools_inner {
+        position: relative;
+        z-index: 3; /* Higher than the overlay's z-index of 2 */
+    }
+
+    .faq_inner {
+        position: relative;
+        z-index: 3; /* Higher than the overlay's z-index of 2 */
+    }
+
+    
+}
+
+@media(max-width:500.98px){
+    .home_title{
+        font-size: calc(50px + (80 - 50) * ((100vw - 320px) / (500 - 320)));
+    }
+
+    .home_descr{
+        font-size: calc(30px + (45 - 30) * ((100vw - 320px) / (500 - 320)));
+    }
+
+    .home_text{
+        font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (500 - 320)));
+    }
+
+    .faq_title {
+        font-size: calc(36px + (48 - 36) * ((100vw - 320px) / (500 - 320)));
+    }
+    
+    .faq_item {
+        padding: 20px;
+    }
+    
+    .faq_question {
+        font-size: 18px;
+    }
+
+    .tools {
+        padding: 50px 0;
+    }
+
+    .tools_title {
+        font-size: calc(36px + (48 - 36) * ((100vw - 320px) / (500 - 320)));
+    }
+
+    .tool_card {
+        padding: 15px;
+    }
+
+    .tool_icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .tools_grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tools_grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tool_card {
+        width: 100%;
+        max-width: 400px; /* Щоб картки не були занадто широкі */
+        margin-bottom: 20px;
+    }
+
+    .tool_card p {
+        font-size: 18px;
+    }
+
+    .result-actions {
+        flex-direction: column;
+    }
+    
+    .secondary-btn {
+        width: 100%;
+    }
+}
