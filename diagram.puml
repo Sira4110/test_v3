@@ -1,0 +1,30 @@
+@startuml
+
+class CaesarCipher {
+    - encryptedTextResult: string
+    - decryptedTextResult: string
+    - minCharCode: number
+    - maxCharCode: number
+    - totalChars: number
+    
+    + encryptCaesar(text: string, shift: number): string
+    + decryptCaesar(text: string, shift: number): string
+    + encryptText(): void
+    + decryptText(): void
+    + encryptFile(): void
+    + decryptFile(): void
+    + showDecryptedResult(text: string): void
+    + copyEncryptedText(): void
+    + copyDecryptedText(): void
+    + downloadEncryptedText(): void
+    + downloadDecryptedText(): void
+    + copyToClipboard(text: string): void
+    + downloadFile(text: string, filename: string): void
+}
+
+object caesarCipher {
+}
+
+CaesarCipher --> caesarCipher
+
+@enduml
